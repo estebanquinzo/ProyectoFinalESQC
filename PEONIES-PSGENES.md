@@ -1,55 +1,87 @@
-# PEONÍAS: COMPARACIÓN DE GENES FOTOSINTÉTICOS ENTRE ESPECIES DE PEONÍAS
+# PEONÍAS: ANÁLISIS FILOGENÉTICO A PARTIR DE GENES FOTOSINTÉTICOS PARA IDENTIFICAR CLADOS AMENAZADOS
 
-## Descripción del proyecto
-Este proyecto tiene como objetivo identificar y analizar los genes relacionados con la fotosíntesis en el género *Paeonia*, utilizando herramientas bioinformáticas para comparar su expresión, función y conservación con respecto a otras especies vegetales. Las peonías, aunque conocidas por su valor ornamental, presentan características interesantes que aún no han sido ampliamente exploradas a nivel genético.
+---
 
-## Organismo de estudio
-- Género: *Paeonia*.
-- Tipo: Planta angiosperma dicotiledónea.
-- Interés: Ornamentación, biología vegetal, expresión genética.
-- Genes a estudiar: **rbcL**, **psbA** y **atpB**.
+## DESCRIPCIÓN DEL PROYECTO
+Este proyecto tiene como objetivo reconstruir un árbol filogenético del género *Paeonia* (familia Paeoniaceae) utilizando secuencias genéticas descargadas desde bases de datos públicas. A partir del árbol, se identificarán los clados principales y se buscará vincularlos con su estado de conservación, tomando como referencia la Lista Roja de la UICN. Esto permitirá visualizar qué grupos tienen especies amenazadas y proponer acciones de conservación con base en su historia evolutiva.
 
-## Objetivos
-- Identificar genes relacionados con la fotosíntesis en peonías a partir de bases de datos genómicas.
-- Comparar secuencias con otras plantas modelo (como *Arabidopsis thaliana*).
-- Analizar posibles variantes, niveles de expresión y función.
-- Explorar implicaciones biotecnológicas o ecológicas.
+---
 
-# HERRAMIENTAS Y PROGRAMAS A UTILIZAR
+## ORGANISMO DE ESTUDIO
+- **Género:** *Paeonia.*
+- **Familia:** Paeoniaceae.
+- **Tipo:** Plantas angiospermas dicotiledóneas.
+- **Interés:** Conservación de la biodiversidad, evolución vegetal, sistemática.
 
-## Herramientas y programas
-- **NCBI Gene / BLAST:** Buscar genes homólogos.
-- **Ensembl Plants:** Descargar secuencias y anotaciones.
-- **Clustal Omega:** Alineamiento múltiple.
-- **MEGA11:** Análisis filogenético.
-- **Figtree:** Visualizar árboles filogenéticos.
-- **Mesquite:** Análisis evolutivos.
-- **Atom:** Edición de archivos genómicos y scripts. 
+---
 
-## Cómo correr los análisis
-1. **Obtener secuencias:**
-   - Ir a NCBI Gene o Ensembl Plants y buscar genes fotosintéticos conocidos en *Paeonia* o especies cercanas.
-   - Descargar en formato FASTA.
+## OBJETIVOS DEL PROYECTO
+- Descargar secuencias genéticas del género *Paeonia* (genes comunes como *matK*, *rbcL*, *ITS*) desde NCBI.
+- Alinear esas secuencias con herramientas accesibles.
+- Construir un árbol filogenético visual y funcional.
+- Identificar clados con especies amenazadas según la UICN.
+- Proponer estrategias de conservación basadas en los resultados filogenéticos.
 
-2. **Comparar secuencias:**
-   - Usar BLASTn o BLASTx para identificar similitudes con otras especies.
-   - Alinear con Clustal Omega (desde la web o por consola).
+---
 
-3. **Construir árbol filogenético:**
-   - Guardar alineamientos en formato o `.phylip`.
-   - Abrir en MEGA11 para generar el árbol.
-   - Visualizarlo en Figtree y exportar como imagen.
+## HERRAMIENTAS Y PROGRAMAS UTILIZADOS
+- **NCBI (https://www.ncbi.nlm.nih.gov/):** Descargar secuencias genéticas.
+- **Atom** | Editar archivos `.fasta`, `.nexus`, `.nwk`, etc.
+- **Clustal Omega (online):** Realizar alineamientos múltiples. 
+- **Mesquite:** Visualizar y analizar archivos de alineamiento filogenético.
+- **Figtree:** Visualizar y editar árboles filogenéticos con etiquetas.
+- **Git Bash / Git CMD:** Organización de archivos, documentación, control de versiones.
 
-4. **Análisis funcional:**
-   - Buscar las funciones usando bases como Gene Ontology.
-   - Analizar patrones de coexpresión (si hay datos) con R.
+---
 
-5. **Documentar todo en archivos Markdown para interpretación final.**
+## CÓMO EJECUTAR EL PROCESO PASO A PASO
+### 1. Descargar secuencias genéticas desde NCBI.
+- Ir a: https://www.ncbi.nlm.nih.gov/
+- Buscar por ejemplo: "`Paeonia matK`" o "`Paeonia rbcL`"
+- Seleccionar varias especies.
+- Descargar las secuencias en formato **FASTA**.
+- Guardar los archivos en una carpeta llamada `secuencias/`.
 
-## Autor
-- **Esteban Santiago Quinzo Caiminagua**
-- Estudiante de Biología - PUCE
+### 2. Alinear las secuencias con Clustal Omega
+- Ir a: https://www.ebi.ac.uk/Tools/msa/clustalo/
+- Subir las secuencias `.fasta`.
+- Realizar el alineamiento y descargar el archivo alineado.
+- Guardar el alineamiento como `.aln` o `.nexus`.
+
+### 3. Construir el árbol filogenético en Mesquite
+- Abrir Mesquite.
+- Cargar el archivo de alineamiento (`.nexus`).
+- Ir a: **Analysis > Trees > New Tree From Distance Matrix**
+- Usar método Neighbor-Joining (NJ).
+- Guardar el árbol en formato `.nwk` o `.nexus`.
+
+### 4. Visualizar el árbol en Figtree
+- Abrir Figtree.
+- Cargar el archivo `.fasta`
+- Usar opciones de color o etiquetas para marcar:
+- Especies **amenazadas** (en rojo)
+- Especies **no evaluadas** (en gris)
+- Exportar como imagen (`.png`) para documentación final.
+
+### 5. Editar y documentar con Atom
+- Usar Atom para abrir y modificar archivos `.fasta`, `.nwk`, `.md` (como este).
+- Añadir anotaciones o notas si es necesario.
+
+---
+
+## INTERPRETACIÓN ESPERADA
+El árbol filogenético permitirá observar cómo están agrupadas las especies de *Paeonia*. Aquellos clados que contengan especies **en peligro de extinción** (según la UICN) podrán ser marcados como **prioritarios para conservación**, especialmente si forman parte de un linaje evolutivamente único.
+
+Esto se alinea con estrategias modernas de conservación basada en la historia evolutiva y diversidad filogenética, no solo en número de individuos.
+
+---
+
+## AUTOR
+- **Esteban Santiago Quinzo Caiminagua:)**
+- Estudiante de Biología, PUCE
 - Contacto: esquinzo@puce.edu.ec
 
-## Foto representativa del organismo.
+---
+
+## IMAGEN REPRESENTATIVA DEL ORGANISMO DE ESTUDIO
 ![Peonías](https://www.whiteflowerfarm.com/mas_assets/cache/image/a/1/d/d/41437.Jpg)
