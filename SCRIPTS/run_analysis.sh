@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Crear carpetas Results si no existen
-mkdir -p Results
+# Crear carpetas Result
+mkdir -p Result
 
 # Variables de archivos
 INPUT="Data/peonia_matK.fasta"
